@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jarvis Assistant - AI Voice Assistant</title>
+    <link rel="icon" type="image/png" href="images/mylogo.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar with Custom Image Logo -->
+<nav class="navbar">
+    <div class="nav-brand">
+        <div class="logo-icon">
+            <img src="images/mylogo.png" alt="Jarvis Logo" class="nav-logo-img">
+        </div>
+        <span class="brand-name">Jarvis</span>
+    </div>
+    <ul class="nav-menu">
+        <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="#features" class="nav-link">Features</a></li>
+        <li class="nav-item"><a href="#commands" class="nav-link">Commands</a></li>
+        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
+
+    <!-- 3D Canvas Background -->
+    <canvas id="bgCanvas"></canvas>
+
+    <div class="container" id="home">
+        <div class="main-logo">
+        <img src="images/mylogo.png" alt="Jarvis Logo" class="main-logo-img">
+    </div>
+        <h1>Jarvis Assistant</h1>
+        <p id="status">Click mic to speak or type below</p>
+
+        <!-- Voice Search Section -->
+        <div class="voice-section">
+            <button id="micBtn">🎤 Start Listening</button>
+            
+            <!-- Voice Activity Indicator -->
+            <div class="voice-indicator" id="voiceIndicator">
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+            </div>
+        </div>
+
+        <!-- Text Search Section (Below Voice Search) -->
+        <div class="text-section">
+            <div class="text-input-container">
+                <input type="text" id="textCommand" placeholder="💬 Type your command here... e.g., 'What time is it?' or 'Open YouTube'" autocomplete="off">
+                <button id="sendBtn">📤 Send</button>
+            </div>
+            <p class="text-hint">Press Enter to send your command | Ctrl+K to focus here</p>
+        </div>
+
+        <div class="output">
+            <h3>You said:</h3>
+            <p id="userText"></p>
+
+            <h3>Jarvis says:</h3>
+            <p id="jarvisText"></p>
+        </div>
+        
+        <!-- Quick Action Buttons -->
+        <div class="quick-actions">
+            <button class="quick-btn" data-command="what time is it">🕐 Time</button>
+            <button class="quick-btn" data-command="what's today's date">📅 Date</button>
+            <button class="quick-btn" data-command="tell me a joke">😄 Joke</button>
+            <button class="quick-btn" data-command="search web for news">📰 News</button>
+            <button class="quick-btn" data-command="play music">🎵 Music</button>
+            <button class="quick-btn" data-command="calculate 5+3">🧮 Calc</button>
+            <button class="quick-btn" data-command="help">❓ Help</button>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="section-content">
+            <h2>About Jarvis</h2>
+            <p>Jarvis is an intelligent voice assistant that helps you with daily tasks, answers questions, and controls your browser. Built with cutting-edge web technologies, Jarvis provides a seamless and interactive experience. You can either speak your commands or type them in the text box below the voice search.</p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section">
+        <div class="section-content">
+            <h2>Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎤</div>
+                    <h3>Voice Recognition</h3>
+                    <p>Advanced speech recognition for natural conversation</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⌨️</div>
+                    <h3>Text Input</h3>
+                    <p>Type your commands when you prefer not to speak</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🗣️</div>
+                    <h3>Text-to-Speech</h3>
+                    <p>Natural sounding voice responses</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Web Integration</h3>
+                    <p>Open websites and control your browser</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⏰</div>
+                    <h3>Time & Date</h3>
+                    <p>Get current time and date information</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>3D Visuals</h3>
+                    <p>Stunning 3D animated background</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Fast Response</h3>
+                    <p>Instant command processing</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔢</div>
+                    <h3>Calculator</h3>
+                    <p>Perform mathematical calculations</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌤️</div>
+                    <h3>Weather Info</h3>
+                    <p>Get weather updates for any city</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3>Note Taking</h3>
+                    <p>Save and retrieve your notes</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎮</div>
+                    <h3>Games</h3>
+                    <p>Play trivia and number guessing games</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Web Search</h3>
+                    <p>Search Google for anything</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Reminders</h3>
+                    <p>Set and manage reminders</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎲</div>
+                    <h3>Coin & Dice</h3>
+                    <p>Flip a coin or roll a dice</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Translation</h3>
+                    <p>Translate common phrases</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commands Section -->
+    <section id="commands" class="section">
+        <div class="section-content">
+            <h2>Available Commands</h2>
+            <div class="commands-search">
+                <input type="text" id="commandSearch" placeholder="🔍 Search commands...">
+            </div>
+            <div class="commands-list" id="commandsList">
+                <div class="command-item">
+                    <span class="command-voice">"Hello" / "Hi"</span>
+                    <span class="command-response">→ Greets you warmly</span>
+                </div>
+                <div class="command-item">
+                    <span class="command-voice">"What time is it?"</span>
+                    <span class="command-response">→ Tells current time</span>
+                </div>
+                <div class="command-item">
+                    <span class="command-voice">"What's today's date?"</span>
+                    <span class="command-response">→ Shows current date</span>
+                </div>
+                <div class="command-item">
+                    <span class="command-voice">"Who are you?"</span>
+                    <span class="command-response">→ Introduces itself</span>
+                </div>
+                <div class="command-item">
+                    <span class="command-voice">"Help" / "What can you do?"</span>
+                    <span class="command-response">→ Shows available features</span>
+                </div>
+                <div class="command-item">
+                    <span class="command-voice">"Open YouTube"</span>
+                    <span class="command-response">→ Opens YouTube</span>
+                </div>
+                <div class="command-item">
+                    <span class="command-voice">"Open Google"</span>
+                    <span class="command-response">→ Opens Google</span>
+                </div>
+                <div class="command-item">
+                    <span class="command-voice">"Open GitHub"</span>
+                    <span class="command-response">→ Opens GitHub</span>
+                </div>
+                <div class="command-item">
+                    <span class="command-voice">"Calculate 5 + 3"</span>
+                    <span class="command-response">→ Performs calculations</span>
+                </div>
+                <div class="command-item">
+                    <span class="command-voice">"Tell me a joke"</span>
+                    <span class="command-response">→ Tells a random joke</span>
+                </div>
+                <div class="command-item">
+                    <span class="command-voice">"Weather in [city]"</span>
+                    <span class="command-response">→ Shows weather info</span>
+                </div>
+                <div class="command-item">
+                    <span class="command-voice">"Search for [query]"</span>
+                    <span class="command-response">→ Searches the web</span>
+                </div>
+                <div class="command-item">
+                    <span class="command-voice">"Remember [something]"</span>
+                    <span class="command-response">→ Saves a note</span>
+                </div>
+                <div class="command-item">
+                    <span class="command-voice">"What did I remember?"</span>
+                    <span class="command-response">→ Retrieves saved notes</span>
+                </div>
+                <div class="command-item">
+                    <span class="command-voice">"Play music"</span>
+                    <span class="command-response">→ Opens music player</span>
+                </div>
+                <div class="command-item">
+                    <span class="command-voice">"News"</span>
+                    <span class="command-response">→ Shows latest news</span>
+                </div>
+                <div class="command-item">
+                    <span class="command-voice">"Set reminder for [time]"</span>
+                    <span class="command-response">→ Sets a reminder</span>
+                </div>
+                <div class="command-item">
+                    <span class="command-voice">"Play trivia"</span>
+                    <span class="command-response">→ Starts trivia game</span>
+                </div>
+                <div class="command-item">
+                    <span class="command-voice">"Flip a coin"</span>
+                    <span class="command-response">→ Flips a coin</span>
+                </div>
+                <div class="command-item">
+                    <span class="command-voice">"Roll a dice"</span>
+                    <span class="command-response">→ Rolls a dice</span>
+                </div>
+                <div class="command-item">
+                    <span class="command-voice">"Translate hello to Spanish"</span>
+                    <span class="command-response">→ Translates text</span>
+                </div>
+                <div class="command-item">
+                    <span class="command-voice">"Motivate me"</span>
+                    <span class="command-response">→ Gives motivational quote</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="section-content">
+            <h2>Contact Us</h2>
+            <p>Have questions or suggestions? We'd love to hear from you!</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <span>jarvis@assistant.com</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🐙</span>
+                    <span>GitHub: /jarvis-assistant</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🐦</span>
+                    <span>Twitter: @jarvis_ai</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="shortcut-hint">🎤 Press 'M' to listen | ⌨️ Type commands below | ❌ Press 'Esc' to stop</div>
+
+    <!-- Three.js Library for 3D -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.128.0/build/three.module.js"
+            }
+        }
+    </script>
+
+    <script src="js/app.js"></script>
+    <script src="js/voice.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/3d-background.js" type="module"></script>
+</body>
+</html>
